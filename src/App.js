@@ -4,7 +4,8 @@ import './App.css';
 
 class App extends React.Component {
   state = {
-    name: ''
+    name: '',
+    names: []
   }
 
   handleChange = (event) => {
@@ -12,11 +13,16 @@ class App extends React.Component {
     this.setState({ name: event.target.value })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    console.log('')
+  }
+
   render(){
     return (
       <div className="App">
         <header className="App-header">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <label>GIVE ME A NAME</label>
             <br/>
             <input 
@@ -24,6 +30,8 @@ class App extends React.Component {
               placeholder={'A name her please'} 
               value={this.state.name}
             />
+            <br/>
+            <button type="submit">SEND NAME</button>
           </form>
         </header>
       </div>
