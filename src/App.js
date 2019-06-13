@@ -7,6 +7,11 @@ class App extends React.Component {
     name: ''
   }
 
+  handleChange = (event) => {
+    console.log('LETTER?', event.target.value)
+    this.setState({ name: event.target.value })
+  }
+
   render(){
     return (
       <div className="App">
@@ -14,7 +19,11 @@ class App extends React.Component {
           <form>
             <label>GIVE ME A NAME</label>
             <br/>
-            <input placeholder={'A name her please'} value={this.state.name}/>
+            <input 
+              onChange={this.handleChange}
+              placeholder={'A name her please'} 
+              value={this.state.name}
+            />
           </form>
         </header>
       </div>
