@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import List from './List'
+import Form from './Form'
 
 class App extends React.Component {
   state = {
-    name: '',
     names: []
   }
 
-  handleChange = (event) => {
-    this.setState({ name: event.target.value })
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault()
-    const { name, names } = this.state
+  addName = (name) => {
+    const { names } = this.state
 
     this.setState({ 
-      names: names.concat(name),
-      name: ''
+        names: names.concat(name),
     })
   }
 
@@ -26,20 +20,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <form onSubmit={this.handleSubmit}>
-            <label>GIVE ME A NAME</label>
-            <br/>
-            <input 
-              onChange={this.handleChange}
-              placeholder={'A name her please'} 
-              value={this.state.name}
-            />
-            <br/>
-            <button type="submit">SEND NAME</button>
-          </form>
-          <ul>
-            { this.state.names.map(name => <li key={name}>{name}</li>)}
-          </ul>
+          {/* pass handleSubmit as a callback prop */}
+          <Form cheese={'brie'} addName={this.addName}/>
+          <List names={this.state.names} />
         </header>
       </div>
     );
