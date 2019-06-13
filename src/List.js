@@ -4,7 +4,7 @@ class List extends React.Component {
     render(){
         return (
             <ul>
-                { this.props.names.map(name => <li key={name}>{name}</li>)}
+                { this.props.users.map(user => <li key={user.name}>{user.name}, {user.age}</li>)}
             </ul>
         )
     }

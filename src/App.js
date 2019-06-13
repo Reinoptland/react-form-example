@@ -5,14 +5,14 @@ import Form from './Form'
 
 class App extends React.Component {
   state = {
-    names: []
+    users: []
   }
 
-  addName = (name) => {
-    const { names } = this.state
+  addUser = (user) => {
+    const { users } = this.state
 
     this.setState({ 
-        names: names.concat(name),
+        users: users.concat(user),
     })
   }
 
@@ -21,8 +21,8 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           {/* pass handleSubmit as a callback prop */}
-          <Form cheese={'brie'} addName={this.addName}/>
-          <List names={this.state.names} />
+          <Form addUser={this.addUser}/>
+          <List users={this.state.users} />
         </header>
       </div>
     );

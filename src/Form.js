@@ -1,16 +1,16 @@
 import React from 'react'
 
 class Form extends React.Component {
-    state = { name: ''}
+    state = { name: '', age: '' }
 
     handleChange = (event) => {
-        this.setState({ name: event.target.value })
+        this.setState({ [event.target.name]: event.target.value })
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addName(this.state.name)
-        this.setState({ name: ''})
+        this.props.addUser(this.state)
+        this.setState({ name: '', age: ''})
     } 
 
     render(){
@@ -24,6 +24,14 @@ class Form extends React.Component {
                 onChange={this.handleChange}
                 placeholder={'A name her please'} 
                 value={this.state.name}
+                name={'name'}
+                />
+                <br/>
+                <input 
+                onChange={this.handleChange}
+                placeholder={'A age her please'} 
+                value={this.state.age}
+                name={'age'}
                 />
                 <br/>
                 <button type="submit">SEND NAME</button>
