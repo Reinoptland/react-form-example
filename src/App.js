@@ -3,24 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
-  
+  state = {
+    name: ''
+  }
 
   render(){
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <form>
+            <label>GIVE ME A NAME</label>
+            <br/>
+            <input placeholder={'A name her please'} value={this.state.name}/>
+          </form>
         </header>
       </div>
     );
