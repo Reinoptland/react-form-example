@@ -9,21 +9,20 @@ class App extends React.Component {
   }
 
   handleChange = (event) => {
-    console.log('LETTER?', event.target.value)
     this.setState({ name: event.target.value })
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state.name)
+    const { name, names } = this.state
+
     this.setState({ 
-      names: this.state.names.concat(this.state.name),
+      names: names.concat(name),
       name: ''
     })
   }
 
   render(){
-    console.log('STATE:', this.state)
     return (
       <div className="App">
         <header className="App-header">
