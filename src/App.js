@@ -15,10 +15,15 @@ class App extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log('')
+    console.log(this.state.name)
+    this.setState({ 
+      names: this.state.names.concat(this.state.name),
+      name: ''
+    })
   }
 
   render(){
+    console.log('STATE:', this.state)
     return (
       <div className="App">
         <header className="App-header">
