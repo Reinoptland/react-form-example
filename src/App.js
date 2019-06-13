@@ -37,6 +37,9 @@ class App extends React.Component {
             <br/>
             <button type="submit">SEND NAME</button>
           </form>
+          <ul>
+            { this.state.names.map(name => <li key={name}>{name}</li>)}
+          </ul>
         </header>
       </div>
     );
